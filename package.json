@@ -1,0 +1,35 @@
+{
+  "name": "distributed-password-cracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node-dev src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akhila-ariyachandra/distributed-password-cracker.git"
+  },
+  "author": "Akhila Ariyachandra <akhila_ariyachandra@live.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/akhila-ariyachandra/distributed-password-cracker/issues"
+  },
+  "homepage": "https://github.com/akhila-ariyachandra/distributed-password-cracker#readme",
+  "devDependencies": {
+    "@types/body-parser": "^1.19.2",
+    "@types/bull": "^3.15.8",
+    "@types/express": "^4.17.13",
+    "@types/node": "^17.0.31",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.6.4"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "body-parser": "^1.20.0",
+    "bull": "^4.8.2",
+    "dayjs": "^1.11.2",
+    "express": "^4.18.1",
+    "node-cache": "^5.1.2"
+  }
+}

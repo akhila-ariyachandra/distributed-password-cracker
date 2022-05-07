@@ -1,0 +1,69 @@
+version: "3.8"
+services:
+  redis_1:
+    image: "redis:alpine"
+    command: redis-server --port 6379
+    ports:
+      - "6379:6379"
+
+  redis_2:
+    image: "redis:alpine"
+    command: redis-server --port 6380
+    ports:
+      - "6380:6380"
+
+  redis_3:
+    image: "redis:alpine"
+    command: redis-server --port 6381
+    ports:
+      - "6381:6381"
+
+  redis_4:
+    image: "redis:alpine"
+    command: redis-server --port 6382
+    ports:
+      - "6382:6382"
+
+  node_app_1:
+    build: .
+    ports:
+      - 3000:80
+    environment:
+      - BASE_INDEX=0
+      - REDIS_HOST=redis://127.0.0.1:6379
+    network_mode: host
+    depends_on:
+      - redis_1
+
+  node_app_2:
+    build: .
+    ports:
+      - 3001:80
+    environment:
+      - BASE_INDEX=1
+      - REDIS_HOST=redis://127.0.0.1:6380
+    network_mode: host
+    depends_on:
+      - redis_2
+
+  node_app_3:
+    build: .
+    ports:
+      - 3002:80
+    environment:
+      - BASE_INDEX=2
+      - REDIS_HOST=redis://127.0.0.1:6381
+    network_mode: host
+    depends_on:
+      - redis_3
+
+  node_app_4:
+    build: .
+    ports:
+      - 3003:80
+    environment:
+      - BASE_INDEX=3
+      - REDIS_HOST=redis://127.0.0.1:6382
+    network_mode: host
+    depends_on:
+      - redis_4
